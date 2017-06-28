@@ -1,0 +1,10 @@
+{% extends "admin/base_change_list.html" %}
+{% load i18n %}
+
+{% block object-tools-items %}
+  <a class="btn" href="{% url 'admin:estudio_proyecto_project' %}?reverse={{ request.path }}" class="prj_link">Cambiar Proyecto</a>
+  <a class="btn" href="import/{{ cl.get_query_string }}" class="import_link">{% trans "Import" %}</a>
+  <a class="btn" href="export/{{ cl.get_query_string }}" class="export_link">{% trans "Export" %}</a>
+  <a class="btn btn-success" href="calculo/?{{ request.GET.urlencode }}" class="index_link">Calcular Indices</a>
+  {{ block.super }}
+{% endblock %}

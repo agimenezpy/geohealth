@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map xmlns="http://mapnik.org" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" background-color="#c4dff6" font-directory="./fonts" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34">
+
+<Parameters>
+  <Parameter name="bounds">-180,-85.05112877980659,180,85.05112877980659</Parameter>
+  <Parameter name="center">0,0,2</Parameter>
+  <Parameter name="format">png8</Parameter>
+  <Parameter name="minzoom">0</Parameter>
+  <Parameter name="maxzoom">22</Parameter>
+  <Parameter name="name"><![CDATA[Geoserver OSM]]></Parameter>
+  <Parameter name="description"><![CDATA[Geoserver OSM]]></Parameter>
+</Parameters>
+
+<FontSet name="fontset-0">
+  <Font face-name="Open Sans Bold"/>
+  <Font face-name="DejaVu Sans Bold"/>
+  <Font face-name="unifont Medium"/>
+</FontSet>
+<FontSet name="fontset-1">
+  <Font face-name="Open Sans Semibold"/>
+  <Font face-name="DejaVu Sans Book"/>
+  <Font face-name="unifont Medium"/>
+</FontSet>
+<FontSet name="fontset-2">
+  <Font face-name="Open Sans Bold Italic"/>
+  <Font face-name="DejaVu Sans Bold Italic"/>
+  <Font face-name="unifont Medium"/>
+</FontSet>
+<FontSet name="fontset-3">
+  <Font face-name="Open Sans Semibold Italic"/>
+  <Font face-name="DejaVu Sans Italic"/>
+  <Font face-name="unifont Medium"/>
+</FontSet>
+<Style name="world" filter-mode="first" >
+  <Rule>
+    <PolygonSymbolizer fill="#d6ded2" />
+  </Rule>
+</Style>
+<Layer name="world"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>world</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/agimenez/Documents/MapBox/project/geoserver_osm/layers/world/82945364-10m-admin-0-countries.shp]]></Parameter>
+       <Parameter name="id"><![CDATA[world]]></Parameter>
+       <Parameter name="project"><![CDATA[geoserver_osm]]></Parameter>
+       <Parameter name="srs"><![CDATA[]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="country" filter-mode="first" >
+</Style>
+<Style name="country-hideline" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([ISO_A3] = 'PRY')</Filter>
+    <LineSymbolizer stroke="#ffffff" stroke-width="2" />
+  </Rule>
+</Style>
+<Style name="country-line" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#554466" stroke-width="0.5" stroke-linejoin="round" />
+  </Rule>
+</Style>
+<Style name="country-place" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <TextSymbolizer size="20" character-spacing="2" halo-radius="2" fontset-name="fontset-0" placement="point" fill="#443355" halo-fill="#ffffff" ><![CDATA[[NAME]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <TextSymbolizer size="18" character-spacing="1" wrap-width="80" line-spacing="2" halo-radius="2" fontset-name="fontset-0" placement="point" fill="#443355" halo-fill="#ffffff" ><![CDATA[[NAME]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <TextSymbolizer size="17" wrap-width="50" line-spacing="1" halo-radius="2" fontset-name="fontset-0" placement="point" fill="#443355" halo-fill="#ffffff" ><![CDATA[[NAME]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <TextSymbolizer size="17" wrap-width="50" fontset-name="fontset-0" placement="point" fill="#443355" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[NAME]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <TextSymbolizer size="16" wrap-width="40" fontset-name="fontset-0" placement="point" fill="#443355" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[NAME]]]></TextSymbolizer>
+  </Rule>
+</Style>
+<Layer name="country"
+  srs="+proj=longlat +ellps=WGS84 +no_defs">
+    <StyleName>country-place</StyleName>
+    <StyleName>country-line</StyleName>
+    <StyleName>country-hideline</StyleName>
+    <StyleName>country</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/agimenez/Documents/MapBox/project/geoserver_osm/layers/country/world_country.shp]]></Parameter>
+       <Parameter name="id"><![CDATA[country]]></Parameter>
+       <Parameter name="project"><![CDATA[geoserver_osm]]></Parameter>
+       <Parameter name="srs"><![CDATA[]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="water" filter-mode="first" >
+  <Rule>
+    <LineSymbolizer stroke="#f0f7fd" stroke-width="5" />
+    <PolygonSymbolizer fill="#c4dff6" />
+  </Rule>
+</Style>
+<Layer name="water"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>water</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/agimenez/Documents/MapBox/project/geoserver_osm/layers/water/da493aa5-10m-lakes.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="distrito-place" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <TextSymbolizer size="16" character-spacing="5" line-spacing="6" text-transform="uppercase" halo-radius="2" fontset-name="fontset-1" placement="point" fill="#666666" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <TextSymbolizer size="15" character-spacing="4" line-spacing="5" text-transform="uppercase" halo-radius="2" fontset-name="fontset-1" placement="point" fill="#666666" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <TextSymbolizer size="16" character-spacing="3" line-spacing="4" text-transform="uppercase" halo-radius="2" fontset-name="fontset-1" placement="point" fill="#666666" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <TextSymbolizer size="15" character-spacing="2" line-spacing="3" text-transform="uppercase" halo-radius="2" fontset-name="fontset-1" placement="point" fill="#666666" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <TextSymbolizer size="14" text-transform="uppercase" character-spacing="1" line-spacing="2" halo-radius="2" fontset-name="fontset-1" placement="point" fill="#666666" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <TextSymbolizer size="13" line-spacing="1" halo-radius="2" fontset-name="fontset-1" placement="point" fill="#666666" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <TextSymbolizer size="12" halo-radius="2" fontset-name="fontset-1" placement="point" fill="#666666" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <TextSymbolizer halo-radius="2" size="11" fontset-name="fontset-1" placement="point" fill="#666666" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+</Style>
+<Style name="distrito-line" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#666666" stroke-width="2" stroke-dashoffset="2" stroke-dasharray="5" stroke-opacity="0.1" />
+  </Rule>
+</Style>
+<Layer name="distrito"
+  srs="+proj=utm +zone=21 +south +ellps=WGS84 +units=m +no_defs">
+    <StyleName>distrito-line</StyleName>
+    <StyleName>distrito-place</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/agimenez/Documents/MapBox/project/geoserver_osm/layers/distrito/DISTRITO.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="departamento-place" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <TextSymbolizer size="20" character-spacing="2" fill="#a2a2a2" halo-radius="2" placement="point" fontset-name="fontset-2" halo-fill="#ffffff" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <TextSymbolizer size="18" character-spacing="1" wrap-width="80" line-spacing="2" halo-radius="2" placement="point" fontset-name="fontset-2" fill="#888888" halo-fill="#ffffff" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <TextSymbolizer size="17" wrap-width="50" line-spacing="1" placement="point" fontset-name="fontset-2" fill="#888888" halo-radius="1" halo-fill="#ffffff" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <TextSymbolizer size="17" wrap-width="50" placement="point" fontset-name="fontset-2" fill="#888888" halo-radius="1" halo-fill="#ffffff" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+</Style>
+<Style name="departamento-line" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <LineSymbolizer stroke-opacity="0.1" stroke-width="6" stroke="#332244" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <LineSymbolizer stroke="#332244" stroke-width="0.9" />
+  </Rule>
+</Style>
+<Layer name="departamento"
+  srs="+proj=utm +zone=21 +south +ellps=WGS84 +units=m +no_defs">
+    <StyleName>departamento-line</StyleName>
+    <StyleName>departamento-place</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/agimenez/Documents/MapBox/project/geoserver_osm/layers/departamento/DEPARTAMENTO.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="microcuenca-place" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <TextSymbolizer size="16" character-spacing="5" line-spacing="6" text-transform="uppercase" halo-radius="2" fontset-name="fontset-3" placement="point" fill="#888888" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <TextSymbolizer size="15" character-spacing="4" line-spacing="5" text-transform="uppercase" halo-radius="2" fontset-name="fontset-3" placement="point" fill="#888888" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <TextSymbolizer size="16" character-spacing="3" line-spacing="4" text-transform="uppercase" halo-radius="2" fontset-name="fontset-3" placement="point" fill="#888888" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <TextSymbolizer size="15" character-spacing="2" line-spacing="3" text-transform="uppercase" halo-radius="2" fontset-name="fontset-3" placement="point" fill="#888888" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <TextSymbolizer size="14" text-transform="uppercase" character-spacing="1" line-spacing="2" halo-radius="2" fontset-name="fontset-3" placement="point" fill="#888888" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <TextSymbolizer size="13" line-spacing="1" halo-radius="2" fontset-name="fontset-3" placement="point" fill="#888888" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <TextSymbolizer size="12" halo-radius="2" fontset-name="fontset-3" placement="point" fill="#888888" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <TextSymbolizer halo-radius="2" size="11" fontset-name="fontset-3" placement="point" fill="#888888" halo-fill="#ffffff" wrap-width="50" allow-overlap="true" ><![CDATA[[NOMBRE]]]></TextSymbolizer>
+  </Rule>
+</Style>
+<Style name="microcuenca-poly" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <Filter>([DEPARTAMEN] = 'SAN PEDRO')</Filter>
+    <LineSymbolizer stroke="#e68a5c" stroke-width="3" />
+    <PolygonSymbolizer fill-opacity="0.8" fill="#edaa88" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <Filter>([DEPARTAMEN] = 'CAAGUAZU')</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#e65c5c" />
+    <PolygonSymbolizer fill-opacity="0.8" fill="#ed8888" />
+  </Rule>
+</Style>
+<Layer name="microcuenca"
+  srs="+proj=utm +zone=21 +south +ellps=WGS84 +units=m +no_defs">
+    <StyleName>microcuenca-poly</StyleName>
+    <StyleName>microcuenca-place</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/agimenez/Documents/MapBox/project/geoserver_osm/layers/microcuenca/microcuencas.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="beneficiario-marker" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <Filter>([DPTO_] = 'SAN PEDRO')</Filter>
+    <MarkersSymbolizer width="6" fill="#b8e6b8" stroke="#daf2c1" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <Filter>([DPTO_] = 'CAAGUAZU')</Filter>
+    <MarkersSymbolizer width="6" fill="#ff4455" stroke="#881133" allow-overlap="true" />
+  </Rule>
+</Style>
+<Layer name="beneficiario"
+  srs="+proj=utm +zone=21 +south +datum=WGS84 +units=m +no_defs">
+    <StyleName>beneficiario-marker</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/agimenez/Documents/MapBox/project/geoserver_osm/layers/beneficiario/gpsbenef_9114.shp]]></Parameter>
+       <Parameter name="id"><![CDATA[beneficiario]]></Parameter>
+       <Parameter name="project"><![CDATA[geoserver_osm]]></Parameter>
+       <Parameter name="srs"><![CDATA[]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="comunidad-marker" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MarkersSymbolizer width="6" fill="#ffeec7" stroke="#f2e8b6" allow-overlap="true" />
+  </Rule>
+</Style>
+<Layer name="comunidad"
+  srs="+proj=utm +zone=21 +south +datum=WGS84 +units=m +no_defs">
+    <StyleName>comunidad-marker</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/agimenez/Documents/MapBox/project/geoserver_osm/layers/comunidad/gpscind_1521.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+</Map>

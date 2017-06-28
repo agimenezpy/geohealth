@@ -1,0 +1,17 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block extrahead %}
+{{ block.super }}
+<script type="text/javascript">
+STATIC_URL = "{{ STATIC_URL }}"
+</script>
+{% endblock %}
+
+{% block footer_links %}
+  <a href="/" class="icon"><i class="icon-bookmark"></i>CEDIC</a>
+{% endblock %}
+
+{% block copyright %}
+    Centro para el Desarrollo de la Investigación Cientifica. <br>Copyright &copy; 2015
+{% endblock %}

@@ -1,0 +1,13 @@
+- model: clima.Modelo
+  pk: CRUTS322
+  fields:
+    nombre: Climate Research Unit TS3
+
+- model: clima.Modelo
+  pk: HadCM3A2
+  fields:
+    nombre: Hadley Centre Coupled Model A2
+- model: clima.Modelo
+  pk: HadCM3B2
+  fields:
+    nombre: Hadley Centre Coupled Model B2
